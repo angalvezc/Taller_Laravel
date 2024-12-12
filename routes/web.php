@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriesController;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/categories',[CategoriesController::class, 'index'])->name('categories.index'); 
+Route::get('/categories',[CategoriesController::class, 'index'])->name('categories.index');
+Route::post('/categories',[CategoriesController::class, 'store'])->name('categories.store');
+Route::delete('categories/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
