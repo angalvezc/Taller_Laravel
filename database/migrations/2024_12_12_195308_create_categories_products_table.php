@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('categories_products', function (Blueprint $table) {
             $table->id();
-            $table->foreign('id')->references('id')->on('products');
-            $table->foreign('product_id')->references('id')->on('categories');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->unsignedBigInteger('categories_id');
+            $table->foreign('categories_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }
