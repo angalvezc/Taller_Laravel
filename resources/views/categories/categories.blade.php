@@ -46,19 +46,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($product as $products)
+                @foreach ($categories as $categorie)
                 <tr>
-                    <td><strong>{{ $product->id }}</strong></td>
-                    <td>{{ $product->name }}</td>
-                    <td>{{ $product->description }}</td>
+                    <td><strong>{{ $categorie->id }}</strong></td>
+                    <td>{{ $categorie->name }}</td>
+                    <td>{{ $categorie->description }}</td>
                     <td>
-                    <form action="{{ route('categories.destroy', $categories->id) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este autor?');">
+                    <form action="{{ route('categories.destroy', $categorie->id) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este autor?');">
                         @csrf
                         @method('delete')
                         <button type="submit">Eliminar</button>
                     </form>
                     <td>
-                        <form action="{{ route('categories.edit',$categories->id)}}">
+                        <form action="{{ route('categories.edit',$categorie->id)}}">
                             @csrf
                             @method('edit')
                             <button type="submit">Editar</button>
