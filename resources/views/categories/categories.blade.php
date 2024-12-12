@@ -22,12 +22,12 @@
     <br>
     <div class="row">
         <div class="col-3">
-            <form action="{{route('authors.store')}}" method="post">
-                @csrf 
+            <form action="{{route('categories.store')}}" method="post">
+                @csrf
                 <label for="name"><strong>Nombre:</strong></label>
                 <input type="text" class="form-control" name="name" id="name">
                 <br>
-                <label for="nationality"><strong>Descripcion:</strong></label> 
+                <label for="nationality"><strong>Descripcion:</strong></label>
                 <input type="text" class="form-control" name="nationality" id="nationality">
                 <br>
                 <button type="submit">Guardar</button>
@@ -42,23 +42,23 @@
                     <th scope="col">Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Borrar</th>
-                    <th scope="col">Modificar</th> 
+                    <th scope="col">Modificar</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($product as $products)
                 <tr>
                     <td><strong>{{ $product->id }}</strong></td>
-                    <td>{{ $product->name }}</td>         
+                    <td>{{ $product->name }}</td>
                     <td>{{ $product->description }}</td>
                     <td>
-                    <form action="{{ route('authors.destroy', $author->id) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este autor?');">
+                    <form action="{{ route('categories.destroy', $categories->id) }}" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este autor?');">
                         @csrf
                         @method('delete')
                         <button type="submit">Eliminar</button>
                     </form>
                     <td>
-                        <form action="{{ route('authors.edit',$author->id)}}">
+                        <form action="{{ route('categories.edit',$categories->id)}}">
                             @csrf
                             @method('edit')
                             <button type="submit">Editar</button>
