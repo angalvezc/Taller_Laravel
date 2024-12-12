@@ -31,7 +31,11 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categorie = new Category();
+        $categorie->name = $request->name;
+        $categorie->description = $request->nationality;
+        $categorie->save();
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -63,6 +67,12 @@ class CategoriesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $categorie = new Category();
+        $categorie = Category::find($id);
+
+        if ($categorie) {
+            $categorie->delete();
+            return redirect()->route('categories.index');
+        }
     }
 }

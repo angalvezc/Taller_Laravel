@@ -17,3 +17,4 @@ use App\Http\Controllers\CategoriesController;
 Route::get('/categories',[CategoriesController::class, 'index'])->name('categories.index');
 Route::post('/categories',[CategoriesController::class, 'store'])->name('categories.store');
 Route::delete('categories/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
+Route::get('/categories/{id}', [CategoriesController::class,'edit'])->name('categories.edit');
